@@ -1,0 +1,56 @@
+---
+title: "The scoring system"
+execute: 
+  warning: false
+---
+
+
+**Stage**
+
+1st = 10
+
+2nd = 6
+
+3rd = 4
+
+**GC**
+
+1st = 25
+
+2nd = 22
+
+3rd = 20
+
+4th = 18
+
+5th = 16
+
+6-7th = 14
+
+8th = 12
+
+9-10th = 10
+
+11-12th = 8
+
+13-15th = 6
+
+**Green jersey**
+
+1st = 10
+
+2nd = 8
+
+3rd = 6
+
+**KOM jersey**
+
+1st = 10
+
+2nd = 6
+
+3rd = 4
+
+**Most combative**
+
+1st on each stage = 10
