@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "Scoring.html",
-    "href": "Scoring.html",
-    "title": "The scoring system",
-    "section": "",
-    "text": "Stage\n1st = 10\n2nd = 6\n3rd = 4\nGC\n1st = 25\n2nd = 22\n3rd = 20\n4th = 18\n5th = 16\n6-7th = 14\n8th = 12\n9-10th = 10\n11-12th = 8\n13-15th = 6\nGreen jersey\n1st = 10\n2nd = 8\n3rd = 6\nKOM jersey\n1st = 10\n2nd = 6\n3rd = 4\nMost combative\n1st on each stage = 10"
-  },
-  {
     "objectID": "Stages.html",
     "href": "Stages.html",
     "title": "Stage profiles",
@@ -102,7 +95,7 @@
     "href": "Stages.html#stage-13",
     "title": "Stage profiles",
     "section": "Stage 13",
-    "text": "Stage 13\n\n\n\n\n\n\n\nTerrain type\n\n\n\nLarge mountain\n\n\n\n\n\n\n\n\nZings summary\n\n\n\n: Our first foray into the alps. Grand Colombier is harder than 7% avg grade suggests. This is a Jonas 2022 climb."
+    "text": "Stage 13\n\n\n\n\n\n\n\nTerrain type\n\n\n\nLarge mountain\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nOur first foray into the alps. Grand Colombier is harder than 7% avg grade suggests. This is a Jonas 2022 climb."
   },
   {
     "objectID": "Stages.html#stage-14",
@@ -116,7 +109,7 @@
     "href": "Stages.html#stage-15",
     "title": "Stage profiles",
     "section": "Stage 15",
-    "text": "Stage 15\n\n\n\n\n\n\n\nTerrain type\n\n\n\nLarge mountain\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nI have no idea what will happen here. None of the climbs are extremely hard but god there’s a lot of them. Climby breakaway win?"
+    "text": "Stage 15\n\n\n\n\n\n\n\nTerrain type\n\n\n\nLarge mountain\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nI have no idea what will happen here. None of the climbs are extremely hard but god there’s a lot of them. Climby breakaway win? Pog didn’t let those happen last year."
   },
   {
     "objectID": "Stages.html#stage-16",
@@ -130,7 +123,7 @@
     "href": "Stages.html#stage-17",
     "title": "Stage profiles",
     "section": "Stage 17",
-    "text": "Stage 17\n\n\n\n\n\n\n\nTerrain type\n\n\n\nQueen stage (stupid mountains)\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nOne of those ‘must watch live’ stages. Col de la Loze was first used in the 2020 tour. Rog and Sepp dropped Pog on that day and we all thought Rog had won the tour. This might be the hardest climb in France."
+    "text": "Stage 17\n\n\n\n\n\n\n\nTerrain type\n\n\n\nQueen stage (stupid mountains)\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nOne of those ‘must watch live’ stages. Col de la Loze was first used in the 2020 tour. Rog and Sepp dropped Pogi on that day and we all thought Rog had won the tour. This time, I think Pogi actually loses the Tour today. This might be the hardest climb in France."
   },
   {
     "objectID": "Stages.html#stage-18",
@@ -158,6 +151,20 @@
     "href": "Stages.html#stage-21",
     "title": "Stage profiles",
     "section": "Stage 21",
-    "text": "Stage 21\n\n\n\n\n\n\n\nTerrain type\n\n\n\nFlat\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nChamps time. Hopefully your sprinter didn’t OTL."
+    "text": "Stage 21\n\n\n\n\n\n\n\nTerrain type\n\n\n\nFlat\n\n\n\n\n\n\n\n\nZings summary\n\n\n\nChamps time. Hopefully your sprinter didn’t OTL. If Jonas makes it here, I can’t see it being in anything other than Yellow."
+  },
+  {
+    "objectID": "Scoring.html",
+    "href": "Scoring.html",
+    "title": "The scoring system",
+    "section": "",
+    "text": "Stage\n1st = 10\n2nd = 6\n3rd = 4\n4th = 2\n5th = 1\nA day in the jersey\nYellow = 10\nGreen = 5\nPolka dots = 5\nWhite = 5\nMiscellaneous\nFor every 50km in the front group (break) = 1\nLanterne rouge = 10\n\n\n\nGC\n1st = 25\n2nd = 22\n3rd = 20\n4th = 18\n5th = 16\n6-7th = 14\n8th = 12\n9-10th = 10\n11-12th = 8\n13-15th = 6\n\n\n\nGreen jersey\n1st = 10\n2nd = 8\n3rd = 6\nKOM jersey\n1st = 10\n2nd = 6\n3rd = 4\nMost combative\n1st on each stage = 10"
+  },
+  {
+    "objectID": "Standings.html",
+    "href": "Standings.html",
+    "title": "Teams and results",
+    "section": "",
+    "text": "2023 Lineups\n\\(~\\)\nOur lineups for 2023. 12 month PCS rankings are shown in brackets next to the riders. *Pogacar has accumulated 3618 points since the beginning of last year’s tour. Only six other riders get to even half this total.\n\n\n\n\n\nRider type\nHaz\nBergs\nFalcs\nZing\nStiff\nWillo\n\n\n\n\nGeneral\nPogačar Tadej (1)*\nVingegaard Jonas (4)\nPidcock Thomas (16)\nVan Der Poel Mathieu (13)\nO'Connor Ben (58)\nHindley Jai (48)\n\n\nGeneral\nSkjelmose Matthias (8)\nGaudu David (18)\nCarapaz Richard (73)\nYates Adam (9)\nPinot Thibaut (17)\nLanda Mikel (21)\n\n\nGeneral\nPowless Neilson (15)\nUrán Rigoberto (53)\nCort Magnus (65)\nBernal Egan (288)\nMas Enric (11)\nKelderman Wilco (145)\n\n\nGeneral\nAlaphilippe Julian (113)\nMohorič Matej (56)\nYates Simon (36)\nBilbao Pello (27)\nCiccone Giulio (42)\nLaporte Christophe (10)\n\n\nSprinter\nPedersen Mads (7)\nGirway Biniam (81)\nvan Aert Wout (3)\nPhilipsen Jasper (5)\nGroenewegen Dylan (24)\nJakobsen Fabio (51)\n\n\nSub 1\nEwan Caleb (49)\nKuss Sepp (94)\nJungels Bob (141)\nWelsford Sam (82)\nCoquard Bryan (70)\nAndersen Søren Kragh (107)\n\n\nSub 2\nMartin Guillaume (37)\nWright Fred (87)\nCavendish Mark (167)\nBardet Romain (22)\nMeeus Jordi (50)\nBettiol Alberto (84)\n\n\n12 month PCS points\n10405\n6818\n6714\n7800\n6640\n5758\n\n\n\n\n\n\n\n\\(~\\)"
   }
 ]

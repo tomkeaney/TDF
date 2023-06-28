@@ -1,0 +1,297 @@
+---
+title: "Teams and results"
+execute: 
+  warning: false
+---
+
+```{r, include=FALSE}
+library(tidyverse)
+library(rvest)
+library(polite)
+library(tidyr)
+library(kableExtra)
+library(DT)
+
+# Load in stage data
+
+Stage_1 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-1/result/result")
+Sprint <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-1-points")
+Stage_2 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-2/result/result")
+Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-3/result/result")
+Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-4/result/result")
+Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-5/result/result")
+Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-6/result/result")
+Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-7/result/result")
+Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-8/result/result")
+Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-9/result/result")
+Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-10/result/result")
+Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-11/result/result")
+Stage_12 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-12/result/result")
+Stage_13 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-13/result/result")
+Stage_14 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-14/result/result")
+Stage_15 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-15/result/result")
+Stage_16 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-16/result/result")
+Stage_17 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-17/result/result")
+Stage_18 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-18/result/result")
+Stage_19 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-19/result/result")
+Stage_20 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-20/result/result")
+Stage_21 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2023/stage-21/result/result")
+
+```
+
+```{r, eval=FALSE, include=FALSE}
+# Get results
+
+stage_1_results <- Stage_1 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 1,
+         `Most combative` = "NO")
+
+stage_2_results <- Stage_2 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 2,
+         `Most combative` = if_else(BIB == 122, "YES", "NO"))
+
+stage_3_results <- Stage_3 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 3,
+         `Most combative` = if_else(BIB == 146, "YES", "NO"))
+
+stage_4_results <- Stage_4 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 4,
+         `Most combative` = if_else(BIB == 76, "YES", "NO"))
+
+stage_5_results <- Stage_5 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 5,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 146, "YES", "NO"))
+
+stage_6_results <- Stage_6 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 6,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 16, "YES", "NO"))
+
+stage_7_results <- Stage_7 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 7,
+         #Rnk = recode(Rnk, DNF = "NA"),
+         #Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 73, "YES", "NO"))
+
+stage_8_results <- Stage_8 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 8,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 54, "YES", "NO"))
+
+stage_9_results <- Stage_9 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 9,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 97, "YES", "NO"))
+
+stage_10_results <- Stage_10 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 10,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 143, "YES", "NO"))
+
+stage_11_results <- Stage_11 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 11,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 152, "YES", "NO"))
+
+stage_12_results <- Stage_12 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 12,
+         #Rnk = recode(Rnk, DNF = "NA"),
+         #Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 25, "YES", "NO"))
+
+stage_13_results <- Stage_13 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 13,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 171, "YES", "NO"))
+
+stage_14_results <- Stage_14 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 14,
+         #Rnk = recode(Rnk, DNF = "NA"),
+         #Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 201, "YES", "NO"))
+
+stage_15_results <- Stage_15 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 15,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 46, "YES", "NO"))
+
+stage_16_results <- Stage_16 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 16,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 196, "YES", "NO"))
+
+stage_17_results <- Stage_17 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 17,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 6, "YES", "NO"))
+
+stage_18_results <- Stage_18 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 18,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 16, "YES", "NO"))
+
+stage_19_results <- Stage_19 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 19,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 176, "YES", "NO"))
+
+stage_20_results <- Stage_20 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 20,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = if_else(BIB == 176, "YES", "NO"))
+
+stage_21_results <- Stage_21 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 21,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.numeric(Rnk),
+         `Most combative` = "NO")
+
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+```
+
+# 2023 Lineups
+
+$~$
+
+Our lineups for 2023. 12 month PCS rankings are shown in brackets next to the riders. *Pogacar has accumulated 3618 points since the beginning of last year's tour. Only six other riders get to even half this total.
+
+```{r, echo=FALSE}
+Teams <- tibble(`Rider type` = c("General", "General", "General", "General", "Sprinter", "Sub 1", "Sub 2", "12 month PCS points"),
+                Haz = c("Pogačar Tadej (1)*", "Skjelmose Matthias (8)", "Powless Neilson (15)", "Alaphilippe Julian (113)", "Pedersen Mads (7)", "Ewan Caleb (49)", "Martin Guillaume (37)", "10405"),
+                Bergs = c("Vingegaard Jonas (4)", "Gaudu David (18)", "Urán Rigoberto (53)", "Mohorič Matej (56)", "Girway Biniam (81)", "Kuss Sepp (94)", "Wright Fred (87)", "6818"),
+                Falcs = c("Pidcock Thomas (16)", "Carapaz Richard (73)", "Cort Magnus (65)", "Yates Simon (36)", "van Aert Wout (3)", "Jungels Bob (141)", "Cavendish Mark (167)", "6714"),
+                Zing = c("Van Der Poel Mathieu (13)", "Yates Adam (9)", "Bernal Egan (288)", "Bilbao Pello (27)", "Philipsen Jasper (5)", "Welsford Sam (82)", "Bardet Romain (22)", "7800"),
+                Stiff = c("O'Connor Ben (58)", "Pinot Thibaut (17)", "Mas Enric (11)", "Ciccone Giulio (42)", "Groenewegen Dylan (24)", "Coquard Bryan (70)", "Meeus Jordi (50)", "6640"),
+                Willo = c("Hindley Jai (48)", "Landa Mikel (21)", "Kelderman Wilco (145)", "Laporte Christophe (10)", "Jakobsen Fabio (51)", "Andersen Søren Kragh (107)", "Bettiol Alberto (84)", "5758")) 
+
+# For the standings
+
+#startlist <- read_csv("Riders.csv") #%>%
+  #mutate(`Sub activated` = case_when(BIB == 8 ~ "6",
+   #                                  BIB == 151 ~ "9",
+    #                                 BIB == 131 ~ "9",
+     #                                BIB == 25 ~ "15",
+      #                               BIB != c(8, 11, 151, 131) ~ "NO"))
+
+  
+
+
+# Who has who?
+
+#Teams %>% 
+ # kbl() %>% 
+  #kable_minimal() %>% 
+ # column_spec(8, background = spec_color(data$`DIFFERENCE RANK`, option = "A", begin = 0.6, end = 0.95))
+  
+Teams %>%
+#  mutate(Stiff = cell_spec(Stiff, "html", strikeout = ifelse(Stiff == "Haig Jack", TRUE, FALSE)),
+ #        Willo = cell_spec(Willo, "html", strikeout = ifelse(Willo == "Roglič Primož", TRUE, FALSE)),
+  #       Haz = cell_spec(Haz, "html", strikeout = ifelse(Haz == "Martin Guillaume", TRUE, FALSE)), 
+   #      Zing = cell_spec(Zing, "html", strikeout = ifelse(Zing == "Guerreiro Ruben", TRUE, FALSE))) %>% 
+  kable(escape = F) %>% 
+  kable_styling() %>% 
+  #row_spec(5, color = "black", background = "#89c0b6") %>% 
+  row_spec(6:7, color = "white", background = "#A7D3D4") %>% 
+  column_spec(1, bold = TRUE)
+  
+```
+
+$~$

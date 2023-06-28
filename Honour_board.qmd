@@ -1,0 +1,14 @@
+---
+title: "Past winners"
+execute: 
+  warning: false
+---
+
+# 2022 Maillot Jaune
+
+Tom Atwell
+
+# 2021 Maillot Jaune
+
+Harrison Taylor
+

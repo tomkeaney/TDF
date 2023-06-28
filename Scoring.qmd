@@ -4,7 +4,9 @@ execute:
   warning: false
 ---
 
+:::: {.columns}
 
+::: {.column width="25%"}
 **Stage**
 
 1st = 10
@@ -13,6 +15,32 @@ execute:
 
 3rd = 4
 
+4th = 2
+
+5th = 1
+
+**A day in the jersey**
+
+Yellow = 10
+
+Green = 5
+
+Polka dots = 5
+
+White = 5
+
+**Miscellaneous**
+
+For every 50km in the front group (break) = 1
+
+Lanterne rouge = 10
+:::
+
+::: {.column width="12.5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
 **GC**
 
 1st = 25
@@ -34,7 +62,13 @@ execute:
 11-12th = 8
 
 13-15th = 6
+:::
 
+::: {.column width="12.5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
 **Green jersey**
 
 1st = 10
@@ -54,3 +88,8 @@ execute:
 **Most combative**
 
 1st on each stage = 10
+:::
+
+::::
+
+
