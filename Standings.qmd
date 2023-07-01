@@ -439,7 +439,7 @@ kable(Rider_rankings %>%
                 select(Rider, `Directeur sportif`, `Provisional score`,
                        `GC points`, `Green points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points)) %>% 
   kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
+   scroll_box(width = "1000px", height = "800px")
 
 
 ```
