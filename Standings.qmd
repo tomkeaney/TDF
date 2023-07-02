@@ -315,19 +315,20 @@ Stage_Scoring <- function(stage_data){
 Total_score <- map_dfr(Stage_list, Stage_Scoring) 
 
 Total_score_tidy <- Total_score %>% 
-  group_by(Rider) %>% 
+  group_by(BIB) %>% 
   mutate(Total_stage_points = sum(stage_points, na.rm = TRUE),
-         Total_most_combative_points = sum(`Most combative points`, na.rm = TRUE)) %>% 
-  distinct(BIB, .keep_all = TRUE)
+         Total_most_combative_points = sum(`Most combative points`, na.rm = TRUE)) #%>% 
+  #distinct(BIB, .keep_all = TRUE)
 
 a <- 
   Total_score_tidy %>%
+  distinct(BIB, .keep_all = TRUE) %>% 
   select(Rider, BIB, Total_stage_points, Total_most_combative_points)
 
 b <-
   Total_score %>% 
   filter(Stage == max(Stage)) %>%
-  select(GC, BIB, Rider, GC_points)
+  select(GC, BIB, GC_points)
 
 Results_complete <- 
   left_join(a, b) %>%
