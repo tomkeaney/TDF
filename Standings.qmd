@@ -67,13 +67,14 @@ stage_3_results <- Stage_3 %>%
          Rnk = as.character(Rnk),
          `Most combative` = if_else(BIB == 178, "YES", "NO"))
 
-#stage_4_results <- Stage_4 %>%
- # html_node("table") %>% 
- # html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
- # select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 4,
- #        `Most combative` = if_else(BIB == 76, "YES", "NO"))
+stage_4_results <- Stage_4 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 4,
+          Rnk = as.character(Rnk),
+         `Most combative` = if_else(BIB == 174, "YES", "NO"))
 
 #stage_5_results <- Stage_5 %>%
 #  html_node("table") %>% 
@@ -245,7 +246,7 @@ stage_3_results <- Stage_3 %>%
  #        Rnk = as.numeric(Rnk),
   #       `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results, stage_2_results, stage_3_results)#, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results)#, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
 # 2023 Lineups
@@ -345,7 +346,7 @@ Results_complete <-
   # add the jersey wearing points
   mutate(Yellow_wearer_points = case_when(BIB == 19 ~ "10",
                                           .default = "0"),
-         Green_wearer_points = case_when(BIB == 19 | BIB == 125 ~ "5",
+         Green_wearer_points = case_when(BIB == 19 | BIB == 125 | BIB == 106 ~ "5",
                                          .default = "0"),
          White_wearer_points = case_when(BIB == 11 ~ "5",
                                          .default = "0"),
@@ -357,7 +358,7 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "125" = 10, "106" = 8, "6" = 6, .default = 0),
+         `Green points` = recode(BIB, "106" = 10, "125" = 8, "181" = 6, .default = 0),
          `Mountain points` = recode(BIB, "46" = 10, "1" = 6, "11" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
@@ -481,6 +482,20 @@ Stage_Scoring(stage_2_results) %>%
 ```{r, echo=FALSE}
   
 Stage_Scoring(stage_3_results) %>%
+        rename(`Stage result` = Rnk,
+               `Stage points` = stage_points) %>% 
+                select(Rider, `Stage result`, `Stage points`) %>% 
+  kable() %>% 
+  kable_styling() %>% 
+   scroll_box(width = "800px", height = "800px")
+  
+```
+
+### Stage 4
+
+```{r, echo=FALSE}
+  
+Stage_Scoring(stage_4_results) %>%
         rename(`Stage result` = Rnk,
                `Stage points` = stage_points) %>% 
                 select(Rider, `Stage result`, `Stage points`) %>% 
