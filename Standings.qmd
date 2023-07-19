@@ -186,15 +186,15 @@ stage_15_results <- Stage_15 %>%
          Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 115, "YES", "NO"))
 
-#stage_16_results <- Stage_16 %>%
- # html_node("table") %>% 
- # html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 16,
- #        Rnk = recode(Rnk, DNF = "NA"),
-  #       Rnk = as.numeric(Rnk),
-   #      `Most combative` = if_else(BIB == 196, "YES", "NO"))
+stage_16_results <- Stage_16 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 16,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = "NO")
 
 #stage_17_results <- Stage_17 %>%
  # html_node("table") %>% 
@@ -246,7 +246,7 @@ stage_15_results <- Stage_15 %>%
  #        Rnk = as.numeric(Rnk),
   #       `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results)#, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results)#, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
 # 2023 Lineups
@@ -287,7 +287,8 @@ Teams %>%
   mutate(Stiff = cell_spec(Stiff, "html", strikeout = ifelse(Stiff == "Mas Enric (11)", TRUE, FALSE)), 
          Falcs = cell_spec(Falcs, "html", strikeout = ifelse(Falcs == "Carapaz Richard (73)" | Falcs == "Cavendish Mark (167)", TRUE, FALSE)),
          Willo = cell_spec(Willo, "html", strikeout = ifelse(Willo == "Jakobsen Fabio (51)", TRUE, FALSE)), 
-         Zing = cell_spec(Zing, "html", strikeout = ifelse(Zing == "Bardet Romain (22)", TRUE, FALSE))) %>% 
+         Zing = cell_spec(Zing, "html", strikeout = ifelse(Zing == "Bardet Romain (22)", TRUE, FALSE)),
+         Haz = cell_spec(Haz, "html", strikeout = ifelse(Haz == "Ewan Caleb (49)", TRUE, FALSE))) %>% 
   kable(escape = F) %>% 
   kable_styling() %>% 
   #row_spec(5, color = "black", background = "#89c0b6") %>% 
@@ -650,6 +651,20 @@ Stage_Scoring(stage_14_results) %>%
 ```{r, echo=FALSE}
   
 Stage_Scoring(stage_15_results) %>%
+        rename(`Stage result` = Rnk,
+               `Stage points` = stage_points) %>% 
+                select(Rider, `Stage result`, `Stage points`) %>% 
+  kable() %>% 
+  kable_styling() %>% 
+   scroll_box(width = "800px", height = "800px")
+  
+```
+
+### Stage 16
+
+```{r, echo=FALSE}
+  
+Stage_Scoring(stage_16_results) %>%
         rename(`Stage result` = Rnk,
                `Stage points` = stage_points) %>% 
                 select(Rider, `Stage result`, `Stage points`) %>% 
