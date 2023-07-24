@@ -393,8 +393,27 @@ Rider_rankings <-
   #       `Mountain points` = recode(BIB, "46" = 10, "184" = 6, "118" = 4, .default = 0),
     #     `Final score` = `Provisional score` + `Green points` + `Mountain points`) 
 
+Break_kms <- tibble(
+  Directeur = c("Haz", "Bergs", "Falcs", "Zing", "Stiff", "Willo"),
+  Break_kms = c(2481, 922, 847, 738, 1431, 833)) %>% 
+  mutate(`Break points` = round(Break_kms / 50, 0))
+
+```
 
 
+```{r, echo=FALSE}
+Break_kms %>% 
+  rename(`Breakaway kms` = Break_kms) %>% 
+  arrange(-`Breakaway kms`) %>% 
+  #tibble(#Sub_penalty = c(0, 0, 0, 0, -20, 0),
+       #  Green_points = c(14, 0, 10, 0, 0, 0),
+        # Mountain_points = c(4, 10, 0, 0, 0, 0)) %>% 
+ # mutate(`Confirmed points` = `Confirmed points` #+ Sub_penalty,
+  #       `Final score` = `Provisional score` + Sub_penalty + Green_points + Mountain_points) %>% 
+  #select(`Directeur sportif`, `Final score`, Green_points, Mountain_points) %>% 
+  #arrange(-`Final score`) %>% 
+  kable() %>% 
+  kable_styling()
 ```
 
 
@@ -402,6 +421,9 @@ Rider_rankings <-
 Team_rankings %>% 
   rename(`Final score` = `Provisional score`) %>% 
   select(Directeur, `Final score`) %>% 
+  left_join(Break_kms %>% select(Directeur, `Break points`)) %>%
+  mutate(`Final score` = `Final score` + `Break points`) %>% 
+  arrange(-`Final score`) %>% 
   #tibble(#Sub_penalty = c(0, 0, 0, 0, -20, 0),
        #  Green_points = c(14, 0, 10, 0, 0, 0),
         # Mountain_points = c(4, 10, 0, 0, 0, 0)) %>% 
