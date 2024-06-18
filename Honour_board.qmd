@@ -4,6 +4,10 @@ execute:
   warning: false
 ---
 
+# 2023 Maillot Jaune
+
+Tom Keaney
+
 # 2022 Maillot Jaune
 
 Tom Atwell
