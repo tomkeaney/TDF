@@ -29,11 +29,24 @@ Polka dots = 5
 
 White = 5
 
-**Miscellaneous**
+**The breakaway**
 
 For every 50km in the front group (break) = 1
 
-Lanterne rouge = 10
+**Domestique**
+
+Team stage win = 3
+
+Team stage 2nd = 2
+
+Team stage 3rd = 1
+
+Team GC win = 8
+
+Team GC 2nd = 6
+
+Team GC 3rd = 4
+
 :::
 
 ::: {.column width="12.5%"}
@@ -78,6 +91,14 @@ Lanterne rouge = 10
 3rd = 6
 
 **KOM jersey**
+
+1st = 10
+
+2nd = 6
+
+3rd = 4
+
+**White jersey**
 
 1st = 10
 
