@@ -451,35 +451,32 @@ Team_rankings %>%
 
 # Create a function to build HTML searchable tables
 
-#]my_data_table <- function(df){
-  #datatable(
-   # df, rownames=FALSE,
-  #  autoHideNavigation = TRUE,
-#    extensions = c("Scroller",  "Buttons"),
- #   options = list(
-  #    dom = 'Bfrtip',
-   #   deferRender=TRUE,
-    #  scrollX=TRUE, scrollY=400,
-     # scrollCollapse=TRUE,
-#      buttons =
- #       list('pageLength', 'colvis', 'csv', list(
-  #        extend = 'pdf',
-   #       pageSize = 'A4',
-    #      orientation = 'landscape',
-     #     filename = 'tour_data')),
-     # pageLength = 200
-    #)
-#  )
-#}
+my_data_table <- function(df){
+  datatable(
+    df, rownames=FALSE,
+    autoHideNavigation = TRUE,
+    extensions = c("Scroller",  "Buttons"),
+    options = list(
+      dom = 'Bfrtip',
+      deferRender=TRUE,
+      scrollX=TRUE, scrollY=400,
+      scrollCollapse=TRUE,
+      buttons =
+        list('pageLength', 'colvis', 'csv', list(
+          extend = 'pdf',
+          pageSize = 'A4',
+          orientation = 'landscape',
+          filename = 'tour_data')),
+      pageLength = 200
+    )
+  )
+}
 
-kable(Rider_rankings %>% 
+
+Rider_rankings %>% 
                 select(Rider, `Directeur sportif`, `Provisional score`,
-                       `GC points`, `Green points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points, Domestique_points)) %>% 
-        #rename(`Final score` = `Provisional score`)) %>% 
-  kable_styling() %>% 
-   scroll_box(width = "1000px", height = "800px")
-
-
+                       `GC points`, `Green points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points, Domestique_points) %>% 
+  my_data_table()
 ```
 
 ## Stage results
