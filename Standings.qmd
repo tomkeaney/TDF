@@ -50,22 +50,23 @@ stage_1_results <- Stage_1 %>%
   mutate(Stage = 1,
          `Most combative` = if_else(BIB == 187, "YES", "NO"))
 
-#stage_2_results <- Stage_2 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 2,
-   #      `Most combative` = if_else(BIB == 46, "YES", "NO"))
+stage_2_results <- Stage_2 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 2,
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 202, "YES", "NO"))
 
-#stage_3_results <- Stage_3 %>%
- #html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 3,
-   #      Rnk = as.character(Rnk),
-    #     `Most combative` = if_else(BIB == 178, "YES", "NO"))
+stage_3_results <- Stage_3 %>%
+ html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 3,
+         Rnk = as.character(Rnk),
+         `Most combative` = if_else(BIB == 215, "YES", "NO"))
 
 #stage_4_results <- Stage_4 %>%
  # html_node("table") %>% 
@@ -246,8 +247,8 @@ stage_1_results <- Stage_1 %>%
     #     Rnk = recode(Rnk, DNF = "NA"),
      #    `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results)
-                   #, stage_2_results, stage_3_results, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results)
+                   #, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
 # 2024 Lineups
@@ -351,11 +352,11 @@ Results_complete <-
     .default = "Not selected"
   )) %>% 
   # add the jersey wearing points
-  mutate(Yellow_wearer_points = case_when(BIB == 181 ~ "10",
+  mutate(Yellow_wearer_points = case_when(BIB == 181 | BIB == 11 | BIB == 111  ~ "10",
                                           .default = "0"),
-         Green_wearer_points = case_when(BIB == 187 ~ "5",
+         Green_wearer_points = case_when(BIB == 187 | BIB == 202 ~ "5",
                                          .default = "0"),
-         White_wearer_points = case_when(BIB == 187 ~ "5",
+         White_wearer_points = case_when(BIB == 187 | BIB == 71 ~ "5",
                                          .default = "0"),
          Polka_wearer_points = case_when(BIB == 202 ~ "5",
                                          .default = "0"),
@@ -459,7 +460,7 @@ my_data_table <- function(df){
     options = list(
       dom = 'Bfrtip',
       deferRender=TRUE,
-      scrollX=TRUE, scrollY=400,
+      scrollX=TRUE, scrollY=600,
       scrollCollapse=TRUE,
       buttons =
         list('pageLength', 'colvis', 'csv', list(
@@ -467,7 +468,7 @@ my_data_table <- function(df){
           pageSize = 'A4',
           orientation = 'landscape',
           filename = 'tour_data')),
-      pageLength = 200
+      pageLength = 100
     )
   )
 }
@@ -497,7 +498,7 @@ Stage_Scoring(stage_1_results) %>%
 
 ### Stage 2
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_2_results) %>%
         rename(`Stage result` = Rnk,
@@ -511,7 +512,7 @@ Stage_Scoring(stage_2_results) %>%
 
 ### Stage 3
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_3_results) %>%
         rename(`Stage result` = Rnk,
