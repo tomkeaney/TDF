@@ -368,8 +368,8 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "187" = 10, "181" = 8, "8" = 6, .default = 0),
-         `White points` = recode(BIB, "187" = 10, "126" = 8, "71" = 6, .default = 0),
+         `Green points` = recode(BIB, "202" = 10, "172" = 8, "161" = 6, .default = 0),
+         `White points` = recode(BIB, "71" = 10, "31" = 8, "3" = 6, .default = 0),
          `Mountain points` = recode(BIB, "202" = 10, "95" = 6, "187" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
