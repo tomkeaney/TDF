@@ -373,9 +373,9 @@ Results_complete <-
          `Mountain points` = recode(BIB, "202" = 10, "95" = 6, "187" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
-           Polka_wearer_points + `Green points` + `Mountain points` + Domestique_points) %>% 
+           Polka_wearer_points + `Green points` + `Mountain points` + `White points` + Domestique_points) %>% 
   arrange(-Final_score) %>% 
-  select(Rider, BIB, Directeur, GC, Total_stage_points, Total_most_combative_points, GC_points, Jersey_points, Domestique_points, `Green points`, `Mountain points`, Final_score)
+  select(Rider, BIB, Directeur, GC, Total_stage_points, Total_most_combative_points, GC_points, Jersey_points, Domestique_points, `Green points`, `White points`, `Mountain points`, Final_score)
   
 
 Team_rankings <-
@@ -476,7 +476,7 @@ my_data_table <- function(df){
 
 Rider_rankings %>% 
                 select(Rider, `Directeur sportif`, `Provisional score`,
-                       `GC points`, `Green points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points, Domestique_points) %>% 
+                       `GC points`, `Green points`, `White points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points, Domestique_points) %>% 
   my_data_table()
 ```
 
