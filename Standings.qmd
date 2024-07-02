@@ -68,14 +68,14 @@ stage_3_results <- Stage_3 %>%
          Rnk = as.character(Rnk),
          `Most combative` = if_else(BIB == 215, "YES", "NO"))
 
-#stage_4_results <- Stage_4 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 4,
-   #       Rnk = as.character(Rnk),
-    #     `Most combative` = if_else(BIB == 93, "YES", "NO"))
+stage_4_results <- Stage_4 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 4,
+          Rnk = as.character(Rnk),
+         `Most combative` = if_else(BIB == 155, "YES", "NO"))
 
 #stage_5_results <- Stage_5 %>%
  # html_node("table") %>% 
@@ -247,8 +247,8 @@ stage_3_results <- Stage_3 %>%
     #     Rnk = recode(Rnk, DNF = "NA"),
      #    `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results, stage_2_results, stage_3_results)
-                   #, stage_4_results, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results)
+                   #, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
 # 2024 Lineups
@@ -361,6 +361,7 @@ Results_complete <-
          Polka_wearer_points = case_when(BIB == 202 ~ "5",
                                          .default = "0"),
          Domestique_points = case_when(BIB == 3 ~ "1",
+                                       BIB == 12 ~ "3", 
                                          .default = "0")) %>% 
   ungroup() %>% 
   mutate(across(8:12, ~ as.numeric(.x))) %>% 
@@ -368,9 +369,9 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "202" = 10, "172" = 8, "161" = 6, .default = 0),
-         `White points` = recode(BIB, "71" = 10, "31" = 8, "3" = 6, .default = 0),
-         `Mountain points` = recode(BIB, "202" = 10, "95" = 6, "187" = 4, .default = 0),
+         `Green points` = recode(BIB, "202" = 10, "172" = 8, "45" = 6, .default = 0),
+         `White points` = recode(BIB, "71" = 10, "13" = 8, "31" = 6, .default = 0),
+         `Mountain points` = recode(BIB, "202" = 10, "11" = 6, "95" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points + `Green points` + `Mountain points` + `White points` + Domestique_points) %>% 
@@ -526,7 +527,7 @@ Stage_Scoring(stage_3_results) %>%
 
 ### Stage 4
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_4_results) %>%
         rename(`Stage result` = Rnk,
