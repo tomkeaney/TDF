@@ -83,8 +83,8 @@ stage_5_results <- Stage_5 %>%
   as_tibble(.name_repair = "unique") %>% 
   select(Rnk, GC, BIB, Rider) %>% 
   mutate(Stage = 5,
-         Rnk = recode(Rnk, DNF = "NA"),
          Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 98, "YES", "NO"))
 
 stage_6_results <- Stage_6 %>%
@@ -93,8 +93,8 @@ stage_6_results <- Stage_6 %>%
   as_tibble(.name_repair = "unique") %>% 
   select(Rnk, GC, BIB, Rider) %>% 
   mutate(Stage = 6,
-         Rnk = recode(Rnk, DNF = "NA"),
          Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 45, "YES", "NO"))
 
 #stage_7_results <- Stage_7 %>%
