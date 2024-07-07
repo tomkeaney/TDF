@@ -262,7 +262,7 @@ Our lineups for 2024. 12 month PCS rankings are shown in brackets next to the ri
 ```{r, echo=FALSE}
 Teams <- 
   tibble(`Rider type` = c("General", "General", "General", "General", "Domestique", "Sprinter", "Sub 1", "Sub 2", "12 month PCS points"),
-         Zing = c("Pogačar Tadej (1)*", "Cavendish Mark (330)", "Martinez Lenny (32)", "Bilbao Pello (17)", "Almeida Joao (26)", "Pedersen Mads (4)", "Landa Mikel (50)", "Onley Oscar (86)", "10,968"),
+         Zing = c("Pogačar Tadej (1)*", "Cavendish Mark (330)", "Martinez Lenny (32)", "Bilbao Pello (17)", "Almeida Joao (26)", "Pedersen Mads (DNF)", "Landa Mikel (Subbed in)", "Onley Oscar (86)", "10,968"),
          Bergs = c("Vingegaard Jonas (5)", "Gaudu David (94)", "Healy Ben (105)", "Bernal Egan (59)", "Powless Neilson (185)", "Jakobsen Fabio (184)", "Mas Enric (48)", "Fuglsang Jakob (470)", "5,514"),
          Falcs = c("Evenepoel Remco (3)", "Skujins Toms (74)", "Pidcock Tom (28)", "Mohorič Matej (25)", "Van Der Poel Mathieu (9)", "Cort Magnus (219)", "Girmay Biniam (55)", "Thomas Geraint (99)", "8,243"),
          Haz = c("Roglic Primoz (11)", "Buitrago Santiago (75)", "Williams Stephen (36)", "Yates Simon (23)", "Van aert Wout (10)", "De Lie Arnaud (14)", "Van Gils Maxim (20)", "Haig Jack (325)", "8,876"),
@@ -292,13 +292,14 @@ Teams <-
  # column_spec(8, background = spec_color(data$`DIFFERENCE RANK`, option = "A", begin = 0.6, end = 0.95))
   
 Teams %>%
-  mutate(Zing = cell_spec(Zing, "html", strikeout = ifelse(Zing == "Pedersen Mads (4)", TRUE, FALSE))) %>%  
+ # mutate(Zing = cell_spec(Zing, strikeout = ifelse(Zing == "Pedersen Mads (4)", TRUE, FALSE))) %>%  
  #        Falcs = cell_spec(Falcs, "html", strikeout = ifelse(Falcs == "Carapaz Richard (73)" | Falcs == "Cavendish Mark (167)", TRUE, FALSE)),
   #       Willo = cell_spec(Willo, "html", strikeout = ifelse(Willo == "Jakobsen Fabio (51)", TRUE, FALSE)), 
    #      Zing = cell_spec(Zing, "html", strikeout = ifelse(Zing == "Bardet Romain (22)", TRUE, FALSE)),
     #     Haz = cell_spec(Haz, "html", strikeout = ifelse(Haz == "Ewan Caleb (49)", TRUE, FALSE))) %>% 
-  kable(escape = F) %>% 
+  knitr::kable(escape = F, format="markdown") %>% 
   kable_styling() %>% 
+  #cell_spec(2, strikeout = ifelse(Zing == "Pedersen Mads (4)", TRUE, FALSE)) %>%
   #row_spec(5, color = "black", background = "#89c0b6") %>% 
   row_spec(7:8, color = "white", background = "#A7D3D4") %>% 
   column_spec(1, bold = TRUE)
