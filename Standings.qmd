@@ -137,45 +137,45 @@ stage_10_results <- Stage_10 %>%
          Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 173, "YES", "NO"))
 
-#stage_11_results <- Stage_11 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 11,
-   #      Rnk = as.factor(Rnk),
-    #     Rnk = recode(Rnk, DNF = "NA"),
-     #    `Most combative` = if_else(BIB == 217, "YES", "NO"))
+stage_11_results <- Stage_11 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 11,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 11, "YES", "NO"))
 
-#stage_12_results <- Stage_12 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 12,
-   #      Rnk = recode(Rnk, DNF = "NA"),
-    #     Rnk = as.factor(Rnk),
-     #    `Most combative` = if_else(BIB == 101, "YES", "NO"))
+stage_12_results <- Stage_12 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 12,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 97, "YES", "NO"))
 
-#stage_13_results <- Stage_13 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 13,
-   #      Rnk = recode(Rnk, DNF = "NA"),
-    #     Rnk = as.factor(Rnk),
-     #    `Most combative` = if_else(BIB == 24, "YES", "NO"))
+stage_13_results <- Stage_13 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 13,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 201, "YES", "NO"))
 
-#stage_14_results <- Stage_14 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 14,
-   #      Rnk = recode(Rnk, DNF = "NA"),
-    #     Rnk = as.factor(Rnk),
-     #    `Most combative` = if_else(BIB == 81, "YES", "NO"))
+stage_14_results <- Stage_14 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 14,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 115, "YES", "NO"))
 
 #stage_15_results <- Stage_15 %>%
  # html_node("table") %>% 
@@ -249,7 +249,7 @@ stage_10_results <- Stage_10 %>%
 
 Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results,
                    stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
-                   stage_9_results, stage_10_results)
+                   stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results)
                    #, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
@@ -262,15 +262,15 @@ Our lineups for 2024. 12 month PCS rankings are shown in brackets next to the ri
 ```{r, echo=FALSE}
 Teams <- 
   tibble(`Rider type` = c("General", "General", "General", "General", "Domestique", "Sprinter", "Sub 1", "Sub 2", "12 month PCS points"),
-         Zing = c("Pogačar Tadej (1)*", "Cavendish Mark (330)", "Martinez Lenny (32)", "Bilbao Pello (17)", "Almeida Joao (26)", "Pedersen Mads (DNF)", "Landa Mikel (Subbed in)", "Onley Oscar (86)", "10,968"),
-         Bergs = c("Vingegaard Jonas (5)", "Gaudu David (94)", "Healy Ben (105)", "Bernal Egan (59)", "Powless Neilson (185)", "Jakobsen Fabio (184)", "Mas Enric (48)", "Fuglsang Jakob (470)", "5,514"),
-         Falcs = c("Evenepoel Remco (3)", "Skujins Toms (74)", "Pidcock Tom (28)", "Mohorič Matej (25)", "Van Der Poel Mathieu (9)", "Cort Magnus (219)", "Girmay Biniam (55)", "Thomas Geraint (99)", "8,243"),
-         Haz = c("Roglic Primoz (11)", "Buitrago Santiago (75)", "Williams Stephen (36)", "Yates Simon (23)", "Van aert Wout (10)", "De Lie Arnaud (14)", "Van Gils Maxim (20)", "Haig Jack (325)", "8,876"),
-         Ben = c("Rodriguez Carlos (16)", "Ayuso Juan (12)", "Ciccone Giulio (133)", "Matthews Michael (69)", "Bettiol Alberto (42)", "Philipsen Jasper (2)", "Carapaz Richard (64)", "Martin Guillaume (47)", "8,768"),
+         Zing = c("Pogačar Tadej (1)*", "Cavendish Mark (330)", "Martinez Lenny (32)", "Bilbao Pello (DNF)", "Almeida Joao (26)", "Pedersen Mads (DNF)", "Landa Mikel (Subbed in)", "Onley Oscar (Subbed in)", "10,968"),
+         Bergs = c("Vingegaard Jonas (5)", "Gaudu David (94)", "Healy Ben (105)", "Bernal Egan (59)", "Powless Neilson (185)", "Jakobsen Fabio (DNF)", "Mas Enric (Subbed in)", "Fuglsang Jakob (470)", "5,514"),
+         Falcs = c("Evenepoel Remco (3)", "Skujins Toms (74)", "Pidcock Tom (DNF)", "Mohorič Matej (25)", "Van Der Poel Mathieu (9)", "Cort Magnus (219)", "Girmay Biniam (Subbed in)", "Thomas Geraint (DNF)", "8,243"),
+         Haz = c("Roglic Primoz (DNF)", "Buitrago Santiago (75)", "Williams Stephen (36)", "Yates Simon (23)", "Van aert Wout (10)", "De Lie Arnaud (14)", "Van Gils Maxim (Subbed in)", "Haig Jack (325)", "8,876"),
+         Ben = c("Rodriguez Carlos (16)", "Ayuso Juan (DNF)", "Ciccone Giulio (133)", "Matthews Michael (69)", "Bettiol Alberto (42)", "Philipsen Jasper (2)", "Carapaz Richard (Subbed in)", "Martin Guillaume (47)", "8,768"),
          Willo = c("Yates Adam (7)", "Gee Derek (194)", "Vlasov Aleksandr (DNF)", "Hindley Jai (45)", "Jorgenson Matteo (22)", "Groenewegen Dylan (34)", "Gall Felix (Subbed in)", "Bennett Sam (89)", "8,220"),
          `Free agents` = c("Gregoire Romain (76)", "Demare Arnaud (137)", "Campenaerts Victor (302)",
-                           "Lazkano Oier (131)", "Kragh Andersen Soren (160)", "Bauhaus Phil (101)",
-                           "NA", "NA", "2,682")) 
+                           "Lazkano Oier (131)", "Kragh Andersen Soren (DNF)", "Bauhaus Phil (101)",
+                           "Vermeersch Gianni (Subbed in)", "NA", "2,682")) 
 
 # For the standings
 
@@ -345,13 +345,13 @@ b <-
 Results_complete <- 
   left_join(a, b) %>%
   mutate(Directeur = case_when(
-    BIB == 81 | BIB == 64 | BIB == 131 | BIB == 21 | BIB == 8 | BIB == 121 ~ "Haz",
-    BIB == 1| BIB == 91| BIB == 115| BIB == 32| BIB == 116 | BIB == 185 ~ "Bergs",
-    BIB == 71| BIB == 46| BIB == 36| BIB == 66| BIB == 101 | BIB == 201 ~ "Falcs",
-    BIB == 11| BIB == 191| BIB == 96| BIB == 61| BIB == 12 | BIB == 45 | BIB == 74 ~ "Zing",
-    BIB == 31 | BIB == 13| BIB == 41| BIB == 26| BIB == 112 | BIB == 106 ~ "Ben",
+    BIB == 81 | BIB == 64 | BIB == 131 | BIB == 21 | BIB == 8 | BIB == 121 | BIB == 126 ~ "Haz",
+    BIB == 1| BIB == 91| BIB == 115| BIB == 32| BIB == 116 | BIB == 185 | BIB == 151 ~ "Bergs",
+    BIB == 71| BIB == 46| BIB == 36| BIB == 66| BIB == 101 | BIB == 201 | BIB == 172 ~ "Falcs",
+    BIB == 11| BIB == 191| BIB == 96| BIB == 61| BIB == 12 | BIB == 45 | BIB == 74 | BIB == 186 ~ "Zing",
+    BIB == 31 | BIB == 13| BIB == 41| BIB == 26| BIB == 112 | BIB == 106 | BIB == 111 ~ "Ben",
     BIB == 18| BIB == 135 | BIB == 88 | BIB == 84 | BIB == 3 | BIB == 23 | BIB == 51 ~ "Willo",
-    BIB == 93| BIB == 164 | BIB == 123 | BIB == 155 | BIB == 104 | BIB == 63 ~ "Free agents",
+    BIB == 93| BIB == 164 | BIB == 123 | BIB == 155 | BIB == 104 | BIB == 63 | BIB == 108 ~ "Free agents",
     .default = "Not selected"
   )) %>% 
   # add the jersey wearing points
@@ -361,11 +361,12 @@ Results_complete <-
                                          .default = "0"),
          White_wearer_points = case_when(BIB == 187 | BIB == 71 ~ "5",
                                          .default = "0"),
-         Polka_wearer_points = case_when(BIB == 202 ~ "5",
+         Polka_wearer_points = case_when(BIB == 202 | BIB == 11 ~ "5",
                                          .default = "0"),
-         Domestique_points = case_when(BIB == 3 ~ "1",
-                                       BIB == 12 ~ "3",
-                                       BIB == 101 | BIB == 104 ~ "7",
+         Domestique_points = case_when(BIB == 3 ~ "10",
+                                       BIB == 8 ~ "5",
+                                       BIB == 12 ~ "8",
+                                       BIB == 101 | BIB == 104 ~ "10",
                                          .default = "0")) %>% 
   ungroup() %>% 
   mutate(across(8:12, ~ as.numeric(.x))) %>% 
@@ -373,9 +374,9 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "172" = 10, "106" = 8, "202" = 6, .default = 0),
-         `White points` = recode(BIB, "71" = 10, "13" = 8, "31" = 6, .default = 0),
-         `Mountain points` = recode(BIB, "202" = 10, "11" = 6, "95" = 4, .default = 0),
+         `Green points` = recode(BIB, "172" = 10, "106" = 8, "143" = 6, .default = 0),
+         `White points` = recode(BIB, "71" = 10, "31" = 8, "3" = 6, .default = 0),
+         `Mountain points` = recode(BIB, "11" = 10, "1" = 6, "202" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points + `Green points` + `Mountain points` + `White points` + Domestique_points) %>% 
@@ -393,7 +394,15 @@ Team_rankings <-
            sum(Jersey_points) + sum(Domestique_points)) %>% 
   arrange(-`Provisional score`) %>% 
   distinct(Directeur, .keep_all = TRUE) %>% 
-  select(Directeur, `Confirmed points`, `Provisional score`) %>% 
+  select(Directeur, `Confirmed points`, `Provisional score`) %>%
+  mutate(`Confirmed points` = case_when(Directeur == "Falcs" ~ `Confirmed points` - 49,
+                                        Directeur == "Ben" ~ `Confirmed points` - 10,
+                                        Directeur == "Haz" ~ `Confirmed points` - 1,
+                                        .default = `Confirmed points`),
+         `Provisional score` = case_when(Directeur == "Falcs" ~ `Provisional score` - 49,
+                                        Directeur == "Ben" ~ `Provisional score` - 10,
+                                        Directeur == "Haz" ~ `Provisional score` - 1,
+                                        .default = `Provisional score`)) %>% 
   filter(Directeur  != "Not selected")
 
 Rider_rankings <-
@@ -629,7 +638,7 @@ Stage_Scoring(stage_10_results) %>%
 
 ### Stage 11
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_11_results) %>%
         rename(`Stage result` = Rnk,
@@ -643,7 +652,7 @@ Stage_Scoring(stage_11_results) %>%
 
 ### Stage 12
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_12_results) %>%
         rename(`Stage result` = Rnk,
@@ -657,7 +666,7 @@ Stage_Scoring(stage_12_results) %>%
 
 ### Stage 13
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_13_results) %>%
         rename(`Stage result` = Rnk,
@@ -671,7 +680,7 @@ Stage_Scoring(stage_13_results) %>%
 
 ### Stage 14
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_14_results) %>%
         rename(`Stage result` = Rnk,
