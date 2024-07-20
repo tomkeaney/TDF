@@ -227,15 +227,15 @@ stage_19_results <- Stage_19 %>%
          Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 111, "YES", "NO"))
 
-#stage_20_results <- Stage_20 %>%
- # html_node("table") %>% 
-  #html_table() %>% 
-  #as_tibble(.name_repair = "unique") %>% 
-  #select(Rnk, GC, BIB, Rider) %>% 
-  #mutate(Stage = 20,
-   #      Rnk = as.factor(Rnk),
-    #     Rnk = recode(Rnk, DNF = "NA"),
-     #    `Most combative` = if_else(BIB == 37, "YES", "NO"))
+stage_20_results <- Stage_20 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(Rnk, GC, BIB, Rider) %>% 
+  mutate(Stage = 20,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 151, "YES", "NO"))
 
 #stage_21_results <- Stage_21 %>%
  # html_node("table") %>% 
@@ -249,7 +249,7 @@ stage_19_results <- Stage_19 %>%
 
 Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results,
                    stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
-                   stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results)
+                   stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results)
                    #, stage_5_results, stage_6_results, stage_7_results, stage_8_results, stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results,stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
 ```
 
@@ -363,10 +363,10 @@ Results_complete <-
                                          .default = "0"),
          Polka_wearer_points = case_when(BIB == 202 | BIB == 11 | BIB == 111 ~ "5",
                                          .default = "0"),
-         Domestique_points = case_when(BIB == 3 ~ "18", # 12 + 6
-                                       BIB == 8 ~ "13", # 9 + 4
-                                       BIB == 12 ~ "22",
-                                       BIB == 116 ~ "3",
+         Domestique_points = case_when(BIB == 3 ~ "20", # 14 + 6
+                                       BIB == 8 ~ "17", # 11 + 6
+                                       BIB == 12 ~ "25", # 17 + 8
+                                       BIB == 116 ~ "4",
                                        BIB == 101 | BIB == 104 ~ "13",
                                          .default = "0")) %>% 
   ungroup() %>% 
@@ -765,7 +765,7 @@ Stage_Scoring(stage_19_results) %>%
 
 ### Stage 20
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_20_results) %>%
         rename(`Stage result` = Rnk,
