@@ -6,35 +6,34 @@ execute:
 
 ## Stage 1
 
-![](profiles_2024/stage_1.jpg)
+![](profiles_25/stage_1.jpg)
 
 ::: {.callout-note title="Terrain type"}
-Medium mountain
+Chaotic sprint
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-This is the best opening stage profile I think we've ever had. Lots of climbing, but that final hill just isn't hard enough for the pure climbers. The question is whether any of the really sprinty climby types can be there at the end to challenge Pog in a reduced sprint.   
+Milan and Merlier have overtaken Phillipsen as the big-boy sprinters, but neither have MVDPs lead-out. Expect huge risks and big crashes. 
 
 :::
 
 ## Stage 2
 
-![](profiles_2024/stage_2.jpg)
+![](profiles_25/stage_2.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Medium mountain
+Punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
-
-The Italian start continues with a miny Giro dell'Emilia. The climb to the Sanctuary of Saint Luca is tackled twice and, while short, super steep. This was Alaphilippe's terrain back in the day, but now it's Pog pog pog (seriously it's worth emptying the isaver account).
+Now we get our first look at the puncheurs. Every year I think MVDP will clean these, only for some to basically smoke darts mid stage. Will this be the year?
 :::
 
 ## Stage 3
 
-![](profiles_2024/stage_3.jpg)
+![](profiles_25/stage_3.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
@@ -42,69 +41,68 @@ Flat
 :::
 
 ::: {.callout-tip title="Zings summary"}
-First chance for the pure sprinters. Expect lead-out train carnage.
+A second chance for the pure sprinters. Expect lead-out train carnage.
 :::
 
 ## Stage 4
 
-![](profiles_2024/stage_4.jpg)
+![](profiles_25/stage_4.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Extreme mountain
+Punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Holy shit the Galibier this early. Jonas, Remco and Primoz better hope those last minute altitude camps paid dividends. Luckily for them, this is the gradual side of Galibier.
+This one's a bit harder than stage 2. Pog and Jonas could punch away if given the proper lead-out. Remco struggles with positioning in these finishes, so he'll be nervous.
 
 :::
 
 ## Stage 5
 
-![](profiles_2024/stage_5.jpg)
+![](profiles_25/stage_5.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Flat
+Flat time trial
 :::
 
 ::: {.callout-tip title="Zings summary"}
-
-Given this looks like we're sprinting again, lets discuss lead-outs. The days of long trains are over, with Quickstep not even bringing a sprinter. The new tactic is to have one really fast lead-out that hits the front in the last few hundred metres. Think MVDP helping Philipsen last year. That duo returns and in terms of team power, might only be rivaled by Cav's Astana.
+A rare long tt in the modern tour era. Remco should clean this. Expect him to take a minute plus on Jonas and Pog. On pog, there's controversy around UAE's tt bike. He hated it in the Dauphine and wasn't afraid to show his displeasure. Colnago under the pump.
 :::
 
 ## Stage 6
 
-![](profiles_2024/stage_6.jpg)
+![](profiles_25/stage_6.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Flat
+Punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Who's the best sprinter here? Philipsen, Merlier and Milan have dominated sprints this year, but of those three, only Philipsen is on the startlist.
+A bit of a theme for the first week, with all these hilly finishes. I wonder whether we'll be thinking seriously about Wout here. He won a similar stage in the giro in a 1v1 with Del Toro, but Pog and MVDP are different beasts
 :::
 
 ## Stage 7
 
-![](profiles_2024/stage_7.jpg)
+![](profiles_25/stage_7.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Time trial
+Punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Remco is the most aerodynamic man on the planet and this is the perfect course for him. If he's serious about yellow, we need to see him put 45 secs + into all his rivals.
+Rise, repeat, just a little longer. Let's go with Pog outsprinting Jonas on this one.
 :::
 
 ## Stage 8
 
-![](profiles_2024/stage_8.jpg)
+![](profiles_25/stage_8.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
@@ -118,104 +116,119 @@ A bit of an uphill sprint but nothing too exciting. Get some sleep.
 
 ## Stage 9
 
-![](profiles_2024/stage_9.jpg)
+![](profiles_25/stage_9.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Gravel
+Flat
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Will this be hard? I have no idea. Apparently the gravel is pretty rough, but there aren't the hills to make this selective. Some flimsy GC pretender will crash out today (looking at you Enric).
+Another early night.
 :::
 
 ## Stage 10
 
-![](profiles_2024/stage_10.jpg)
+![](profiles_25/stage_10.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Flat
+Mountains
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Lots of sprinting at the front end of this tour. Could Cav finally break the Mercx record?
+The first mountain stage! Much later than last year, perhaps to make it appear like a close tour. This is the litmus test for Jonas. He must stay with Pog to be any chance. On paper also a good stage for Roglic, but Lipowitz might be Red Bull's real GC man.
 :::
 
 ## Stage 11
 
-![](profiles_2024/stage_11.jpg)
+![](profiles_25/stage_11.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Medium mountain
+Punchy punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Pretty much every GC rider in the world tour is at this TDF and this is where we find out how they stack up. Those climbs at the end are short, but they;re steep. I don't expect them to be big, but I do expect GC gaps today. 
+Nailed on Pog. Big points for the puncheurs this tour.
 :::
 
 ## Stage 12
 
-![](profiles_2024/stage_12.jpg)
+![](profiles_25/stage_12.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Flat
+Pyrenees mountains 
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-More sprinting. Maybe we should prioritise sprinters...
+First real test. Remco should be in yellow here, but can he hold off a rampaging UAE and Visma?
 :::
 
 ## Stage 13
 
-![](profiles_2024/stage_13.jpg)
+![](profiles_25/stage_13.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Flat
+Uphill time trial
 :::
 
 ::: {.callout-tip title="Zings summary"}
-See above.
+Interesting one. For whatever reason, I think Jonas wins.
 :::
 
 ## Stage 14
 
-![](profiles_2024/stage_14.jpg)
+![](profiles_25/stage_14.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-High mountain
+High pyrenees mountains
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Big kilajoules day before a very hard final climb. Kilajoules burnt positively correlates with gc gaps so circle this one on the calendar. A Jonas day if he has the shape.
+Big kilajoules day before a very hard final climb. Kilajoules burnt positively correlates with gc gaps so circle this one on the calendar. Expect some aggressive tactics from Visma. Will Simon Yates and Matteo Jorgenson actually matter?
 :::
 
 ## Stage 15
 
-![](profiles_2024/stage_15.jpg)
+![](profiles_25/stage_15.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-High mountain
+Transition stage
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Nothing will happen here until the final climb because of the long valleys that separate the mountains. This is the first stage I think the breakaway is likely to win.
+Breakaway. Where's Johnny Hoogerland.
+
 :::
 
 ## Stage 16
 
-![](profiles_2024/stage_16.jpg)
+![](profiles_25/stage_16.jpg)
+
+::: {.callout-note title="Terrain type"}
+
+The bald mountain
+:::
+
+::: {.callout-tip title="Zings summary"}
+
+In 2021 Jonas cracked Pog on Ventoux (and Wout somehow won the stage); the only time someone managed to do that for that whole year. Pog still win that tour handily, but for the debutant Jonas it was a sign of things to come. Will history repeat.
+:::
+
+## Stage 17
+
+![](profiles_25/stage_17.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
@@ -224,76 +237,60 @@ Flat
 
 ::: {.callout-tip title="Zings summary"}
 
-I don't have much left to say about sprinting, so lets briefly mention some outside stage candidates. In no particular order there's Pedersen, Bennett, Bauhaus, Groenewegen, Jakobsen and De Lie.
-:::
-
-## Stage 17
-
-![](profiles_2024/stage_17.jpg)
-
-::: {.callout-note title="Terrain type"}
-
-Medium mountain
-:::
-
-::: {.callout-tip title="Zings summary"}
-
-Get in the break fellas. Note that I might be wrong about the lack of break chances before today. UAE don't have the team to chase a break, so it all depends on Jonas' form, because Jumbo certainly have the team to keep a break in check.
+This tour is a sprinters hell. Today presents one of their few opportunities. Sprinters should not be highly valued on draft boards this year.
 :::
 
 ## Stage 18
 
-![](profiles_2024/stage_18.jpg)
+![](profiles_25/stage_18.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Medium mountain
+Queen stage
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-If you missed the break yesterday, you'd want to get in today.
+Two brutal warm-up climbs lead into the hardest climb in France. Pog uttered his famous "I'm dead" here in 2023 and proceeded to lose 5 minutes. 
 :::
 
 ## Stage 19
 
-![](profiles_2024/stage_19.jpg)
+![](profiles_25/stage_19.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Queen stage (stupid mountains)
+Extreme alps
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-Circle this one. Look how high Bonette is! This stage is so important that all the rich teams held their altitude camps at Isola this year. It's also the place where Pog's greatest weakness - climbs over an hour after big kilajoule expenditure - should get taken to task. He showed great improvement in this area at the Giro, but there was no one there that could truly challenge him. Jury's out on whether the tour will be any different.
+I hope it's still close, but my gut says Pog will have it sewn up by this point. So let's list some top 5 GC smokies. I like one of Lenny, Onley or Johannessen if things break right, and Skjelmose to sneak in right at the end after three weeks in witness protection.  
 :::
 
 ## Stage 20
 
-![](profiles_2024/stage_20.jpg)
+![](profiles_25/stage_20.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Extreme mountains 
+Transition day 
 :::
 
 ::: {.callout-tip title="Zings summary"}
-The final battle for yellow and the dots. Plenty of raid potential. If the time gaps are close this could be awesome. It's worth quickly talking about the teams here: UAE and Bora bring the best climbing teams to a tour since 2012 Sky. UAE is so stacked that a 1, 2, 3 on gc is a real possibility. Bora bring Hindley, Roglic and Vlasov who should all be top 10 level at worst.
-
-P.s how tired will Pog be at this point after a Giro-Tour double?
+The hard racing is over and it's back to the surviving sprinters.
 :::
 
 ## Stage 21
 
-![](profiles_2024/stage_21.jpg)
+![](profiles_25/stage_21.jpg)
 
 ::: {.callout-note title="Terrain type"}
 
-Mountain TT
+Punchy
 :::
 
 ::: {.callout-tip title="Zings summary"}
 
-No Champs this year because of the Olympics. Instead, we get a brutal time trial. Is it to much to hope for a Pogacar style inspirational comeback _a la_ 2020?
+The Champs returns but with a refreshing twist. This years final stage takes inspiration from the Olympic road race and includes the climb up to Sacre Coeur. Remco won that, so we could be in for an unpredictable, exciting finish. However, will they try?
 :::

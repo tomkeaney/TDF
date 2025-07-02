@@ -14,32 +14,32 @@ library(DT)
 
 # Load in stage data
 
-Stage_1 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-1/result/result")
-Sprint <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-1-points")
-Stage_2 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-2/result/result")
-Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-3/result/result")
-Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-4/result/result")
-Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-5/result/result")
-Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-6/result/result")
-Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-7/result/result")
-Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-8/result/result")
-Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-9/result/result")
-Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-10/result/result")
-Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-11/result/result")
-Stage_12 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-12/result/result")
-Stage_13 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-13/result/result")
-Stage_14 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-14/result/result")
-Stage_15 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-15/result/result")
-Stage_16 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-16/result/result")
-Stage_17 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-17/result/result")
-Stage_18 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-18/result/result")
-Stage_19 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-19/result/result")
-Stage_20 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-20/result/result")
-Stage_21 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2024/stage-21/result/result")
+#Stage_1 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-1/result/result")
+#Sprint <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-1-points")
+#Stage_2 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-2/result/result")
+#Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-3/result/result")
+#Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-4/result/result")
+#Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-5/result/result")
+#Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-6/result/result")
+#Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-7/result/result")
+#Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-8/result/result")
+#Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-9/result/result")
+#Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-10/result/result")
+#Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-11/result/result")
+#Stage_12 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-12/result/result")
+#Stage_13 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-13/result/result")
+#Stage_14 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-14/result/result")
+#Stage_15 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-15/result/result")
+#Stage_16 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-16/result/result")
+#Stage_17 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-17/result/result")
+#Stage_18 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-18/result/result")
+#Stage_19 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-19/result/result")
+#Stage_20 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-20/result/result")
+#Stage_21 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-21/result/result")
 
 ```
 
-```{r, include=FALSE}
+```{r, eval=FALSE, include=FALSE}
 # Get results
 
 stage_1_results <- Stage_1 %>%
@@ -253,13 +253,13 @@ Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_re
                 
 ```
 
-# 2024 Lineups
+# 2025 Lineups
 
 $~$
 
-Our lineups for 2024. 12 month PCS rankings are shown in brackets next to the riders. *Pogacar has accumulated 3833 points since the beginning of last year's tour. Only four other riders get to even half this total.
+Our lineups for 2025. 12 month PCS rankings are shown in brackets next to the riders. *Pogacar has accumulated 3833 points since the beginning of last year's tour. Only four other riders get to even half this total.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 Teams <- 
   tibble(`Rider type` = c("General", "General", "General", "General", "Domestique", "Sprinter", "Sub 1", "Sub 2", "12 month PCS points"),
          Zing = c("Pogačar Tadej (1)*", "Cavendish Mark (330)", "Martinez Lenny (32)", "Bilbao Pello (DNF)", "Almeida Joao (26)", "Pedersen Mads (DNF)", "Landa Mikel (Subbed in)", "Onley Oscar (Subbed in)", "10,968"),
@@ -312,7 +312,7 @@ $~$
 
 $~$
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
   
 Stage_Scoring <- function(stage_data){
   stage_data %>%
@@ -426,7 +426,7 @@ Rider_rankings <-
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 #Break_kms %>% 
  # rename(`Breakaway kms` = Break_kms) %>% 
   #arrange(-`Breakaway kms`) %>% 
@@ -442,7 +442,7 @@ Rider_rankings <-
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 Team_rankings %>% 
   rename(`Final score` = `Provisional score`) %>% 
   select(Directeur, `Final score`) %>% 
@@ -462,7 +462,7 @@ Team_rankings %>%
 
 # Rider rankings
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
 
 # Create a function to build HTML searchable tables
@@ -499,7 +499,7 @@ Rider_rankings %>%
 
 ### Stage 1
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_1_results) %>%
         rename(`Stage result` = Rnk,
@@ -513,7 +513,7 @@ Stage_Scoring(stage_1_results) %>%
 
 ### Stage 2
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_2_results) %>%
         rename(`Stage result` = Rnk,
@@ -527,7 +527,7 @@ Stage_Scoring(stage_2_results) %>%
 
 ### Stage 3
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_3_results) %>%
         rename(`Stage result` = Rnk,
@@ -541,7 +541,7 @@ Stage_Scoring(stage_3_results) %>%
 
 ### Stage 4
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_4_results) %>%
         rename(`Stage result` = Rnk,
@@ -555,7 +555,7 @@ Stage_Scoring(stage_4_results) %>%
 
 ### Stage 5
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_5_results) %>%
         rename(`Stage result` = Rnk,
@@ -569,7 +569,7 @@ Stage_Scoring(stage_5_results) %>%
 
 ### Stage 6
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_6_results) %>%
         rename(`Stage result` = Rnk,
@@ -583,7 +583,7 @@ Stage_Scoring(stage_6_results) %>%
 
 ### Stage 7
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_7_results) %>%
         rename(`Stage result` = Rnk,
@@ -597,7 +597,7 @@ Stage_Scoring(stage_7_results) %>%
 
 ### Stage 8
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_8_results) %>%
         rename(`Stage result` = Rnk,
@@ -611,7 +611,7 @@ Stage_Scoring(stage_8_results) %>%
 
 ### Stage 9
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_9_results) %>%
         rename(`Stage result` = Rnk,
@@ -625,7 +625,7 @@ Stage_Scoring(stage_9_results) %>%
 
 ### Stage 10
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_10_results) %>%
         rename(`Stage result` = Rnk,
@@ -639,7 +639,7 @@ Stage_Scoring(stage_10_results) %>%
 
 ### Stage 11
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_11_results) %>%
         rename(`Stage result` = Rnk,
@@ -653,7 +653,7 @@ Stage_Scoring(stage_11_results) %>%
 
 ### Stage 12
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_12_results) %>%
         rename(`Stage result` = Rnk,
@@ -667,7 +667,7 @@ Stage_Scoring(stage_12_results) %>%
 
 ### Stage 13
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_13_results) %>%
         rename(`Stage result` = Rnk,
@@ -681,7 +681,7 @@ Stage_Scoring(stage_13_results) %>%
 
 ### Stage 14
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_14_results) %>%
         rename(`Stage result` = Rnk,
@@ -695,7 +695,7 @@ Stage_Scoring(stage_14_results) %>%
 
 ### Stage 15
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_15_results) %>%
         rename(`Stage result` = Rnk,
@@ -709,7 +709,7 @@ Stage_Scoring(stage_15_results) %>%
 
 ### Stage 16
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_16_results) %>%
         rename(`Stage result` = Rnk,
@@ -723,7 +723,7 @@ Stage_Scoring(stage_16_results) %>%
 
 ### Stage 17
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_17_results) %>%
         rename(`Stage result` = Rnk,
@@ -737,7 +737,7 @@ Stage_Scoring(stage_17_results) %>%
 
 ### Stage 18
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_18_results) %>%
         rename(`Stage result` = Rnk,
@@ -751,7 +751,7 @@ Stage_Scoring(stage_18_results) %>%
 
 ### Stage 19
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_19_results) %>%
         rename(`Stage result` = Rnk,
@@ -765,7 +765,7 @@ Stage_Scoring(stage_19_results) %>%
 
 ### Stage 20
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_20_results) %>%
         rename(`Stage result` = Rnk,
@@ -779,7 +779,7 @@ Stage_Scoring(stage_20_results) %>%
 
 ### Stage 21
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
   
 Stage_Scoring(stage_21_results) %>%
         rename(`Stage result` = Rnk,

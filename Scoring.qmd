@@ -4,10 +4,15 @@ execute:
   warning: false
 ---
 
-:::: {.columns}
+::: {.callout-caution collapse="true"}
+## Pogacar rules
 
-::: {.column width="25%"}
-**Stage**
+If Tadej scores points in any way, they are halved. This is the only way to make his inclusion in our comp fair. He's that good. Note that this doesn't affect the points of his domestiques e.g. if he wins a stage they still get 3 points.
+
+:::
+
+::: {.callout-note collapse="true"}
+## Stage
 
 1st = 10
 
@@ -19,7 +24,12 @@ execute:
 
 5th = 1
 
-**A day in the jersey**
+:::
+
+::: {.callout-note collapse="true"}
+## A day in the jersey
+
+This only conveys once. Wearers for multiple days do not receive additional points.
 
 Yellow = 10
 
@@ -28,12 +38,19 @@ Green = 5
 Polka dots = 5
 
 White = 5
+:::
 
-**The breakaway**
+::: {.callout-note collapse="true"}
+## A day in the breakaway
 
-For every 50km in the front group (break) = 1
+Making it into the break = 5^*
 
-**Domestique**
+*PCS classifies this as spending greater than 50% of a stage in front of the main peloton.
+:::
+
+::: {.callout-note collapse="true"}
+
+## Domestique
 
 Team stage win = 3
 
@@ -46,15 +63,10 @@ Team GC win = 8
 Team GC 2nd = 6
 
 Team GC 3rd = 4
-
 :::
 
-::: {.column width="12.5%"}
-<!-- empty column to create gap -->
-:::
-
-::: {.column width="25%"}
-**GC**
+::: {.callout-note collapse="true"}
+## GC
 
 1st = 25
 
@@ -77,12 +89,8 @@ Team GC 3rd = 4
 13-15th = 6
 :::
 
-::: {.column width="12.5%"}
-<!-- empty column to create gap -->
-:::
-
-::: {.column width="25%"}
-**Green jersey**
+::: {.callout-note collapse="true"}
+## Green jersey
 
 1st = 10
 
@@ -90,27 +98,34 @@ Team GC 3rd = 4
 
 3rd = 6
 
-**KOM jersey**
-
-1st = 10
-
-2nd = 6
-
-3rd = 4
-
-**White jersey**
-
-1st = 10
-
-2nd = 6
-
-3rd = 4
-
-**Most combative**
-
-1st on each stage = 10
 :::
 
-::::
+::: {.callout-note collapse="true"}
+## KOM jersey
 
+1st = 10
+
+2nd = 6
+
+3rd = 4
+:::
+
+::: {.callout-note collapse="true"}
+
+## White jersey
+
+1st = 10
+
+2nd = 6
+
+3rd = 4
+:::
+
+::: {.callout-note collapse="true"}
+
+## Most combative
+
+1st on each stage = 10
+
+:::
 
