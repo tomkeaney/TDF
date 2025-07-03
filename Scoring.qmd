@@ -43,9 +43,9 @@ White = 5
 ::: {.callout-note collapse="true"}
 ## A day in the breakaway
 
-Making it into the break = 5^*
+Making it into the break = 5
 
-*PCS classifies this as spending greater than 50% of a stage in front of the main peloton.
+PCS classifies this as spending greater than 50% of a stage in front of the main peloton.
 :::
 
 ::: {.callout-note collapse="true"}

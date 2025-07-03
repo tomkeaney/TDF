@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Tour de France 2024 Fantasy sportif"
+  title: "Tour de France 2025 Fantasy sportif"
   navbar:
     search: true
     logo: "profiles/jumbo_chaos.jpg"
