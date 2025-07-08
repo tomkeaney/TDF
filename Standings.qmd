@@ -17,8 +17,8 @@ library(DT)
 Stage_1 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-1")
 #Sprint <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-1-points")
 Stage_2 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-2/result/result")
-#Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-3/result/result")
-#Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-4/result/result")
+Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-3/result/result")
+Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-4/result/result")
 #Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-5/result/result")
 #Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-6/result/result")
 #Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-7/result/result")
@@ -61,23 +61,28 @@ stage_2_results <- Stage_2 %>%
          Rnk = as.factor(Rnk),
          `Most combative` = if_else(BIB == 152, "YES", "NO"))
 
-#stage_3_results <- Stage_3 %>%
-# html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 3,
-#         Rnk = as.character(Rnk),
-#         `Most combative` = if_else(BIB == 215, "YES", "NO"))
-#
-#stage_4_results <- Stage_4 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 4,
-#          Rnk = as.character(Rnk),
-#         `Most combative` = if_else(BIB == 155, "YES", "NO"))
+stage_3_results <- Stage_3 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>% 
+  filter(!str_detect(GC, "Danny")) %>% 
+  mutate(Stage = 3,
+         Rnk = as.factor(Rnk),
+         GC = as.integer(GC),
+         BIB = as.integer(BIB),
+         `Most combative` = if_else(BIB == 300, "YES", "NO")) # not awarded
+
+stage_4_results <- Stage_4 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>% 
+  mutate(Stage = 4,
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 55, "YES", "NO"))
 #
 #stage_5_results <- Stage_5 %>%
 #  html_node("table") %>% 
@@ -249,9 +254,7 @@ stage_2_results <- Stage_2 %>%
 #         Rnk = recode(Rnk, DNF = "NA"),
 #         `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results, stage_2_results)
-                   
-                   #, stage_3_results, stage_4_results,
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results)#,
                    #stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
                    #stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
                 
@@ -268,9 +271,9 @@ Teams <-
   tibble(`Rider type` = c("General", "General", "General", "General", "Domestique", "Sprinter", "Sub 1", "Sub 2"),
          Ben = c("Pogačar Tadej", "Vauquelin Kevin", "Gall Felix", "Cort Magnus", "Yates Adam", "Milan Jonathan", "Lutsenko Alexey", "Van Eetvelt Lennert"),
          Zing = c("Vingegaard Jonas", "Storer Michael", "Skjelmose Matthias", "Martinez Lenny", "Van Aert Wout", "Nys Thibau", "Warenskjold Soren", "Van Den Broek Frank"),
-         Falcs = c("Van Der Poel Mathieu", "Ganna Filippo", "Powless Neilson", "Healy Ben", "Kuss Sepp", "Merlier Tim", "Mohoric Matej", "Theuns Edward"),
+         Falcs = c("Van Der Poel Mathieu", "Ganna Filippo", "Powless Neilson", "Healy Ben", "Kuss Sepp", "Merlier Tim", "Mohoric Matej (subbed in)", "Theuns Edward"),
          Haz = c("Evenepoel Remco", "Roglic Primoz", "Onley Oscar", "O'Connor Ben", "Jorgenson Matteo", "De Lie Arnaud", "Andresen Tobias Lund", "Johannessen Tobias Halland"),
-         Bergs = c("Lipowitz Florian", "Mas Enric", "Coquard Bryan", "Buitrago Santiago", "Vlasov Aleksandr", "Philipsen Jasper", "Woods Michael", "Ackermann Pascal"),
+         Bergs = c("Lipowitz Florian", "Mas Enric", "Coquard Bryan", "Buitrago Santiago", "Vlasov Aleksandr", "Philipsen Jasper (DNF)", "Woods Michael", "Ackermann Pascal"),
          Willo = c("Almedia Joao", "Rodriguez Carlos", "Hirschi Marc", "Alaphilippe Julian", "Yates Simon", "Girmay Biniam", "Groenewegen Dylan", "Gregoire Romain")) 
 
 # For the standings
@@ -360,22 +363,22 @@ Results_complete <-
   # add the jersey wearing points
   mutate(Yellow_wearer_points = case_when(BIB == 101 | BIB == 106 ~ "10",
                                           .default = "0"),
-         Green_wearer_points = case_when(BIB == 101 ~ "5",
+         Green_wearer_points = case_when(BIB == 101 | BIB == 81 ~ "5",
                                          .default = "0"),
          White_wearer_points = case_when(BIB == 41 | BIB == 131 ~ "5",
                                          .default = "0"),
-         Polka_wearer_points = case_when(BIB == 167 | BIB == 1 ~ "5",
+         Polka_wearer_points = case_when(BIB == 167 | BIB == 1 | BIB == 7 ~ "5",
                                          .default = "0"),
-         Domestique_points = case_when(BIB == 8 ~ "8", # 2 + 6
-                                       BIB == 17 ~ "5", # 1 + 4
-                                       BIB == 16 ~ "5", # 1 + 4
-                                       BIB == 15 ~ "5", # 1 + 4
+         Domestique_points = case_when(BIB == 8 ~ "11", # 5 + 6
+                                       BIB == 17 ~ "6", # 2 + 4
+                                       BIB == 16 ~ "6", # 2 + 4
+                                       BIB == 15 ~ "6", # 2 + 4
                                        BIB == 78 ~ "0", # 
-                                       BIB == 18 ~ "5", # 1 + 4
+                                       BIB == 18 ~ "6", # 2 + 4
                                          .default = "0"),
          Breakaway_points = case_when(BIB == 188 | BIB == 167 |
                                         BIB == 152 | BIB == 218 | BIB == "227" |
-                                        BIB == 175 ~ "5",
+                                        BIB == 175 | BIB == 55 | BIB == 107 | BIB == 112 | BIB == 139 ~ "5",
                                          .default = "0")) %>% 
   mutate(Polka_wearer_points = if_else(BIB == 1, "2.5", Polka_wearer_points)) %>% 
   ungroup() %>% 
@@ -384,9 +387,9 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "101" = 10, "41" = 8, "106" = 6, .default = 0),
-         `White points` = recode(BIB, "131" = 10, "203" = 8, "21" = 6, .default = 0),
-         `Mountain points` = recode(BIB, "1" = 5, "7" = 6, "167" = 4, .default = 0),
+         `Green points` = recode(BIB, "81" = 10, "41" = 8, "106" = 6, .default = 0),
+         `White points` = recode(BIB, "131" = 10, "191" = 8, "21" = 6, .default = 0),
+         `Mountain points` = recode(BIB, "1" = 5, "7" = 6, "11" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points + `Green points` + `Mountain points` + `White points` + Domestique_points) %>% 
@@ -521,7 +524,7 @@ Stage_Scoring(stage_2_results) %>%
 
 ### Stage 3
 
-```{r, echo=FALSE, eval = FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_3_results) %>%
         rename(`Stage result` = Rnk,
@@ -535,7 +538,7 @@ Stage_Scoring(stage_3_results) %>%
 
 ### Stage 4
 
-```{r, echo=FALSE, eval = FALSE}
+```{r, echo=FALSE}
   
 Stage_Scoring(stage_4_results) %>%
         rename(`Stage result` = Rnk,
