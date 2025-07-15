@@ -19,12 +19,12 @@ Stage_1 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/s
 Stage_2 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-2/result/result")
 Stage_3 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-3/result/result")
 Stage_4 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-4/result/result")
-#Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-5/result/result")
-#Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-6/result/result")
-#Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-7/result/result")
-#Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-8/result/result")
-#Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-9/result/result")
-#Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-10/result/result")
+Stage_5 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-5/result/result")
+Stage_6 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-6/result/result")
+Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-7/result/result")
+Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-8/result/result")
+Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-9/result/result")
+Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-10/result/result")
 #Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-11/result/result")
 #Stage_12 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-12/result/result")
 #Stage_13 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-13/result/result")
@@ -83,66 +83,72 @@ stage_4_results <- Stage_4 %>%
   mutate(Stage = 4,
          Rnk = as.factor(Rnk),
          `Most combative` = if_else(BIB == 55, "YES", "NO"))
-#
-#stage_5_results <- Stage_5 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 5,
-#         Rnk = as.factor(Rnk),
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         `Most combative` = if_else(BIB == 98, "YES", "NO"))
-#
-#stage_6_results <- Stage_6 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 6,
-#         Rnk = as.factor(Rnk),
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         `Most combative` = if_else(BIB == 45, "YES", "NO"))
-#
-#stage_7_results <- Stage_7 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 7,
-#         Rnk = as.factor(Rnk),
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         `Most combative` = "NO")
-#
-#stage_8_results <- Stage_8 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 8,
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         Rnk = as.factor(Rnk),
-#         `Most combative` = if_else(BIB == 202, "YES", "NO"))
-#
-#stage_9_results <- Stage_9 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 9,
-#         #Rnk = recode(Rnk, DNF = "NA"),
-#         Rnk = as.factor(Rnk),
-#         `Most combative` = if_else(BIB == 47, "YES", "NO"))
-#
-#stage_10_results <- Stage_10 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 10,
-#         Rnk = as.factor(Rnk),
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         `Most combative` = if_else(BIB == 173, "YES", "NO"))
+
+stage_5_results <- Stage_5 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+   select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>%  
+  mutate(Stage = 5,
+         Rnk = as.factor(Rnk),
+         #Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 300, "YES", "NO"))
+
+stage_6_results <- Stage_6 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+   as_tibble(.name_repair = "unique") %>% 
+   select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>% 
+  mutate(Stage = 6,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+          `Most combative` = if_else(BIB == 31, "YES", "NO"))
+
+stage_7_results <- Stage_7 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>%  
+  mutate(Stage = 7,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 133, "YES", "NO"))
+
+stage_8_results <- Stage_8 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>%  
+  mutate(Stage = 8,
+         Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 182, "YES", "NO"))
+
+stage_9_results <- Stage_9 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>% 
+  mutate(Stage = 9,
+         #Rnk = recode(Rnk, DNF = "NA"),
+         Rnk = as.factor(Rnk),
+         `Most combative` = if_else(BIB == 105, "YES", "NO"))
+
+stage_10_results <- Stage_10 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>%
+  mutate(Stage = 10,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 31, "YES", "NO"))
 #
 #stage_11_results <- Stage_11 %>%
 #  html_node("table") %>% 
@@ -254,9 +260,10 @@ stage_4_results <- Stage_4 %>%
 #         Rnk = recode(Rnk, DNF = "NA"),
 #         `Most combative` = "NO")
 
-Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results)#,
-                   #stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
-                   #stage_9_results, stage_10_results, stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results,
+                   stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
+                   stage_9_results, stage_10_results) 
+                   #stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
                 
 ```
 
@@ -273,8 +280,8 @@ Teams <-
          Zing = c("Vingegaard Jonas", "Storer Michael", "Skjelmose Matthias", "Martinez Lenny", "Van Aert Wout", "Nys Thibau", "Warenskjold Soren", "Van Den Broek Frank"),
          Falcs = c("Van Der Poel Mathieu", "Ganna Filippo", "Powless Neilson", "Healy Ben", "Kuss Sepp", "Merlier Tim", "Mohoric Matej (subbed in)", "Theuns Edward"),
          Haz = c("Evenepoel Remco", "Roglic Primoz", "Onley Oscar", "O'Connor Ben", "Jorgenson Matteo", "De Lie Arnaud", "Andresen Tobias Lund", "Johannessen Tobias Halland"),
-         Bergs = c("Lipowitz Florian", "Mas Enric", "Coquard Bryan", "Buitrago Santiago", "Vlasov Aleksandr", "Philipsen Jasper (DNF)", "Woods Michael", "Ackermann Pascal"),
-         Willo = c("Almedia Joao", "Rodriguez Carlos", "Hirschi Marc", "Alaphilippe Julian", "Yates Simon", "Girmay Biniam", "Groenewegen Dylan", "Gregoire Romain")) 
+         Bergs = c("Lipowitz Florian", "Mas Enric", "Coquard Bryan", "Buitrago Santiago", "Vlasov Aleksandr", "Philipsen Jasper (DNF)", "Woods Michael (subbed in)", "Ackermann Pascal"),
+         Willo = c("Almedia Joao (DNF)", "Rodriguez Carlos", "Hirschi Marc", "Alaphilippe Julian", "Yates Simon", "Girmay Biniam", "Groenewegen Dylan", "Gregoire Romain (subbed in)")) 
 
 # For the standings
 
@@ -352,49 +359,61 @@ b <-
 Results_complete <- 
   left_join(a, b) %>%
   mutate(Directeur = case_when(
-    BIB == 21 | BIB == 71 | BIB == 191 | BIB == 121 | BIB == 15 | BIB == 195 | BIB == 221 ~ "Haz",
-    BIB == 72| BIB == 141| BIB == 163| BIB == 51| BIB == 78 | BIB == 101 | BIB == 201 | BIB == 202 ~ "Bergs",
-    BIB == 106| BIB == 55| BIB == 35| BIB == 31| BIB == 16 | BIB == 24 | BIB == 88 ~ "Falcs",
-    BIB == 11| BIB == 17| BIB == 55| BIB == 85| BIB == 117 | BIB == 83 | BIB == 228 | BIB == 198 ~ "Zing",
-    BIB == 1 | BIB == 131| BIB == 151| BIB == 223| BIB == 8 | BIB == 81 | BIB == 206 | BIB == 217 ~ "Ben",
-    BIB == 2| BIB == 66 | BIB == 111 | BIB == 114 | BIB == 18 | BIB == 41 | BIB == 124 | BIB == 94 ~ "Willo",
+    BIB == 21 | BIB == 71 | BIB == 191 | BIB == 121 | BIB == 15 | BIB == 195 ~ "Haz",
+    BIB == 72| BIB == 141| BIB == 163| BIB == 51| BIB == 78 | BIB == 101 | BIB == 201 ~ "Bergs",
+    BIB == 106| BIB == 35| BIB == 31| BIB == 16 | BIB == 24 | BIB == 56 ~ "Falcs",
+    BIB == 11| BIB == 17| BIB == 55| BIB == 85| BIB == 117 | BIB == 83 ~ "Zing",
+    BIB == 1 | BIB == 131| BIB == 151| BIB == 223| BIB == 8 | BIB == 81 ~ "Ben",
+    BIB == 2| BIB == 66 | BIB == 111 | BIB == 114 | BIB == 18 | BIB == 41 | BIB == 94 ~ "Willo",
     .default = "Not selected"
   )) %>% 
   # add the jersey wearing points
-  mutate(Yellow_wearer_points = case_when(BIB == 101 | BIB == 106 ~ "10",
+  mutate(Yellow_wearer_points = case_when(BIB == 101 | BIB == 106 | BIB == 31 ~ "10",
+                                          BIB == 1 ~ "5",
                                           .default = "0"),
          Green_wearer_points = case_when(BIB == 101 | BIB == 81 ~ "5",
+                                         BIB == 1 ~ "2.5",
                                          .default = "0"),
-         White_wearer_points = case_when(BIB == 41 | BIB == 131 ~ "5",
+         White_wearer_points = case_when(BIB == 41 | BIB == 131 | BIB == 21 | BIB == 31 ~ "5",
                                          .default = "0"),
-         Polka_wearer_points = case_when(BIB == 167 | BIB == 1 | BIB == 7 ~ "5",
+         Polka_wearer_points = case_when(BIB == 167 | BIB == 7 | BIB == 55 ~ "5",
+                                         BIB == 1 ~ "2.5",
                                          .default = "0"),
-         Domestique_points = case_when(BIB == 8 ~ "11", # 5 + 6
-                                       BIB == 17 ~ "6", # 2 + 4
-                                       BIB == 16 ~ "6", # 2 + 4
-                                       BIB == 15 ~ "6", # 2 + 4
+         Domestique_points = case_when(BIB == 8 ~ "18", # 10 + 8
+                                       BIB == 17 ~ "14", # 10 + 4
+                                       BIB == 16 ~ "14", # 10 + 4
+                                       BIB == 15 ~ "14", # 10 + 4
                                        BIB == 78 ~ "0", # 
-                                       BIB == 18 ~ "6", # 2 + 4
-                                         .default = "0"),
-         Breakaway_points = case_when(BIB == 188 | BIB == 167 |
-                                        BIB == 152 | BIB == 218 | BIB == "227" |
-                                        BIB == 175 | BIB == 55 | BIB == 107 | BIB == 112 | BIB == 139 ~ "5",
-                                         .default = "0")) %>% 
-  mutate(Polka_wearer_points = if_else(BIB == 1, "2.5", Polka_wearer_points)) %>% 
+                                       BIB == 18 ~ "14", # 10 + 4
+                                       .default = "0"),
+         Breakaway_points = case_when(BIB == 188 | BIB == 167 | 
+                                        BIB == 152 | BIB == 218 | BIB == 227 |
+                                        BIB == 175 | BIB == 107 | BIB == 112 | BIB == 139 |
+                                        BIB == 122 |
+                                        BIB == 142 | BIB == 171 | BIB == 133 |
+                                        BIB == 61 | BIB == 145 | BIB == 113 | BIB == 105 |
+                                        BIB == 121 | BIB == 203 | BIB == 226 | BIB == 143 | BIB == 14 |
+                                        BIB == 25 | BIB == 96 | BIB == 36 | BIB == 181 | BIB == 128 |
+                                        BIB == 28 | BIB == 111 | BIB == 201 | BIB == 178 | BIB == 135 |
+                                        BIB == 35 | BIB == 174 | BIB == 147 | BIB == 152 | BIB == 206 |
+                                        BIB == 126 | BIB == 156 ~ "5",
+                                        BIB == 106 | BIB == 18 | BIB == 31 | BIB == 117 | BIB == 55 |
+                                        BIB == 84 | BIB == 34 ~ "10",
+                                      .default = "0")) %>% 
   ungroup() %>% 
-  mutate(across(8:12, ~ as.numeric(.x))) %>% 
+  mutate(across(8:13, ~ as.numeric(.x))) %>% 
   mutate(GC_points = replace_na(GC_points, 0),
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "81" = 10, "41" = 8, "106" = 6, .default = 0),
-         `White points` = recode(BIB, "131" = 10, "191" = 8, "21" = 6, .default = 0),
-         `Mountain points` = recode(BIB, "1" = 5, "7" = 6, "11" = 4, .default = 0),
-          Final_score = Total_stage_points + GC_points + Total_most_combative_points + 
+         `Green points` = recode(BIB, "81" = 10, "1" = 8/2, "41" = 6, .default = 0),
+         `White points` = recode(BIB, "31" = 10, "21" = 8, "131" = 6, .default = 0),
+         `Mountain points` = recode(BIB, "55" = 5, "31" = 6, "201" = 4, .default = 0),
+          Final_score = Total_stage_points + GC_points + Total_most_combative_points + Breakaway_points +
            Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points + `Green points` + `Mountain points` + `White points` + Domestique_points) %>% 
   arrange(-Final_score) %>% 
-  select(Rider, BIB, Directeur, GC, Total_stage_points, Total_most_combative_points, GC_points, Jersey_points, Domestique_points, `Green points`, `White points`, `Mountain points`, Final_score)
+  select(Rider, BIB, Directeur, GC, Total_stage_points, Total_most_combative_points, Breakaway_points, GC_points, Jersey_points, Domestique_points, `Green points`, `White points`, `Mountain points`, Final_score)
   
 
 Team_rankings <-
@@ -404,7 +423,7 @@ Team_rankings <-
   group_by(Directeur) %>% 
   mutate(`Provisional score` = sum(Final_score),
          `Confirmed points` = sum(Total_stage_points) + sum(Total_most_combative_points) +
-           sum(Jersey_points) + sum(Domestique_points)) %>% 
+           sum(Jersey_points) + sum(Domestique_points) + sum(Breakaway_points)) %>% 
   arrange(-`Provisional score`) %>% 
   distinct(Directeur, .keep_all = TRUE) %>% 
   select(Directeur, `Confirmed points`, `Provisional score`) %>%
@@ -439,13 +458,13 @@ Rider_rankings <-
 ```
 
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
 Team_rankings %>% 
-  rename(`Final score` = `Provisional score`) %>% 
-  select(Directeur, `Final score`) %>% 
+  #rename(`Final score` = `Provisional score`) %>% 
+  #select(Directeur, `Final score`) %>% 
   #left_join(Break_kms %>% select(Directeur, `Break points`)) %>%
   #mutate(`Final score` = `Final score` + `Break points`) %>% 
-  arrange(-`Final score`) %>% 
+  arrange(-`Provisional score`) %>% 
   #tibble(#Sub_penalty = c(0, 0, 0, 0, -20, 0),
        #  Green_points = c(14, 0, 10, 0, 0, 0),
         # Mountain_points = c(4, 10, 0, 0, 0, 0)) %>% 
@@ -459,7 +478,7 @@ Team_rankings %>%
 
 # Rider rankings
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=FALSE}
 
 
 # Create a function to build HTML searchable tables
@@ -492,298 +511,3 @@ Rider_rankings %>%
   my_data_table()
 ```
 
-## Stage results
-
-### Stage 1
-
-```{r, echo=FALSE}
-  
-Stage_Scoring(stage_1_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 2
-
-```{r, echo=FALSE}
-  
-Stage_Scoring(stage_2_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 3
-
-```{r, echo=FALSE}
-  
-Stage_Scoring(stage_3_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 4
-
-```{r, echo=FALSE}
-  
-Stage_Scoring(stage_4_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 5
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_5_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 6
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_6_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 7
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_7_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 8
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_8_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 9
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_9_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 10
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_10_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 11
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_11_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 12
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_12_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 13
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_13_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 14
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_14_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 15
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_15_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 16
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_16_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 17
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_17_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 18
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_18_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 19
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_19_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 20
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_20_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
-
-### Stage 21
-
-```{r, echo=FALSE, eval = FALSE}
-  
-Stage_Scoring(stage_21_results) %>%
-        rename(`Stage result` = Rnk,
-               `Stage points` = stage_points) %>% 
-                select(Rider, `Stage result`, `Stage points`) %>% 
-  kable() %>% 
-  kable_styling() %>% 
-   scroll_box(width = "800px", height = "800px")
-  
-```
