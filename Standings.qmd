@@ -507,7 +507,7 @@ my_data_table <- function(df){
 
 Rider_rankings %>% 
                 select(Rider, `Directeur sportif`, `Final score`,
-                       `GC points`, `Green points`, `White points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Jersey_points, Domestique_points) %>% 
+                       `GC points`, `Green points`, `White points`, `Mountain points`, `Cumulative stage points`, `Cumulative most combative points`, Breakaway_points, Jersey_points, Domestique_points) %>% 
   my_data_table()
 ```
 
