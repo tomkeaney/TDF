@@ -271,8 +271,6 @@ Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_re
 
 $~$
 
-Our lineups for 2025. 12 month PCS rankings are shown in brackets next to the riders. *Pogacar has accumulated 3833 points since the beginning of last year's tour. Only four other riders get to even half this total.
-
 ```{r, echo=FALSE}
 Teams <- 
   tibble(`Rider type` = c("General", "General", "General", "General", "Domestique", "Sprinter", "Sub 1", "Sub 2"),
