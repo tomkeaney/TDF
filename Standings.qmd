@@ -25,7 +25,7 @@ Stage_7 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/s
 Stage_8 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-8/result/result")
 Stage_9 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-9/result/result")
 Stage_10 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-10/result/result")
-#Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-11/result/result")
+Stage_11 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-11/result/result")
 #Stage_12 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-12/result/result")
 #Stage_13 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-13/result/result")
 #Stage_14 <- read_html("https://www.procyclingstats.com/race/tour-de-france/2025/stage-14/result/result")
@@ -149,16 +149,17 @@ stage_10_results <- Stage_10 %>%
          Rnk = as.factor(Rnk),
          Rnk = recode(Rnk, DNF = "NA"),
          `Most combative` = if_else(BIB == 31, "YES", "NO"))
-#
-#stage_11_results <- Stage_11 %>%
-#  html_node("table") %>% 
-#  html_table() %>% 
-#  as_tibble(.name_repair = "unique") %>% 
-#  select(Rnk, GC, BIB, Rider) %>% 
-#  mutate(Stage = 11,
-#         Rnk = as.factor(Rnk),
-#         Rnk = recode(Rnk, DNF = "NA"),
-#         `Most combative` = if_else(BIB == 11, "YES", "NO"))
+
+stage_11_results <- Stage_11 %>%
+  html_node("table") %>% 
+  html_table() %>% 
+  as_tibble(.name_repair = "unique") %>% 
+  select(X1, X2, X4, X8) %>% 
+  rename(Rnk = X1, GC = X2, BIB = X4, Rider = X8) %>%
+  mutate(Stage = 11,
+         Rnk = as.factor(Rnk),
+         Rnk = recode(Rnk, DNF = "NA"),
+         `Most combative` = if_else(BIB == 222, "YES", "NO"))
 #
 #stage_12_results <- Stage_12 %>%
 #  html_node("table") %>% 
@@ -262,8 +263,8 @@ stage_10_results <- Stage_10 %>%
 
 Stage_list <- list(stage_1_results, stage_2_results, stage_3_results, stage_4_results,
                    stage_5_results, stage_6_results, stage_7_results, stage_8_results, 
-                   stage_9_results, stage_10_results) 
-                   #stage_11_results, stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
+                   stage_9_results, stage_10_results, stage_11_results) 
+                   #stage_12_results, stage_13_results, stage_14_results, stage_15_results, stage_16_results, stage_17_results, stage_18_results, stage_19_results, stage_20_results, stage_21_results)
                 
 ```
 
@@ -385,18 +386,19 @@ Results_complete <-
                                        BIB == 18 ~ "14", # 10 + 4
                                        .default = "0"),
          Breakaway_points = case_when(BIB == 188 | BIB == 167 | 
-                                        BIB == 152 | BIB == 218 | BIB == 227 |
+                                        BIB == 218 | BIB == 227 |
                                         BIB == 175 | BIB == 107 | BIB == 112 | BIB == 139 |
                                         BIB == 122 |
                                         BIB == 142 | BIB == 171 | BIB == 133 |
                                         BIB == 61 | BIB == 145 | BIB == 113 | BIB == 105 |
                                         BIB == 121 | BIB == 203 | BIB == 226 | BIB == 143 | BIB == 14 |
-                                        BIB == 25 | BIB == 96 | BIB == 36 | BIB == 181 | BIB == 128 |
+                                        BIB == 25 | BIB == 96 | BIB == 36 | BIB == 181 |
                                         BIB == 28 | BIB == 111 | BIB == 201 | BIB == 178 | BIB == 135 |
-                                        BIB == 35 | BIB == 174 | BIB == 147 | BIB == 152 | BIB == 206 |
-                                        BIB == 126 | BIB == 156 ~ "5",
+                                        BIB == 35 | BIB == 174 | BIB == 147 | BIB == 206 |
+                                        BIB == 126 | BIB == 156 | BIB == 222 | BIB == 17 |
+                                        BIB == 58 | BIB == 182 | BIB == 172 ~ "5",
                                         BIB == 106 | BIB == 18 | BIB == 31 | BIB == 117 | BIB == 55 |
-                                        BIB == 84 | BIB == 34 ~ "10",
+                                        BIB == 84 | BIB == 34 | BIB == 152 | BIB == 128 ~ "10",
                                       .default = "0")) %>% 
   ungroup() %>% 
   mutate(across(8:13, ~ as.numeric(.x))) %>% 
@@ -404,7 +406,7 @@ Results_complete <-
          #GC = replace_na(GC, "DNF"), 
          Jersey_points = Yellow_wearer_points + Green_wearer_points + White_wearer_points + 
            Polka_wearer_points,
-         `Green points` = recode(BIB, "81" = 10, "1" = 8/2, "41" = 6, .default = 0),
+         `Green points` = recode(BIB, "81" = 10, "1" = 8/2, "106" = 6, .default = 0),
          `White points` = recode(BIB, "31" = 10, "21" = 8, "131" = 6, .default = 0),
          `Mountain points` = recode(BIB, "55" = 5, "31" = 6, "201" = 4, .default = 0),
           Final_score = Total_stage_points + GC_points + Total_most_combative_points + Breakaway_points +
@@ -447,11 +449,6 @@ Rider_rankings <-
   #mutate(`Green points` = recode(BIB, "19" = 10, "161" = 8, "11" = 6, .default = 0),
   #       `Mountain points` = recode(BIB, "46" = 10, "184" = 6, "118" = 4, .default = 0),
     #     `Final score` = `Provisional score` + `Green points` + `Mountain points`) 
-
-#Break_kms <- tibble(
- # Directeur = c("Haz", "Bergs", "Falcs", "Zing", "Stiff", "Willo"),
-  #Break_kms = c(2481, 922, 847, 738, 1431, 833)) %>% 
-  #mutate(`Break points` = round(Break_kms / 50, 0))
 
 ```
 
